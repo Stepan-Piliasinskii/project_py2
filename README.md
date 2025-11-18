@@ -1,10 +1,15 @@
 # project_py2
-Title: Snake game
+Title: Translator
 
 Author: Stepan Piliasinskii
 
-Description: Just a simple snake game, not much description needed :)
+Description: Just a simple translator that uses an external API 
 
-Purpose of the Game: Eat red cell, avoid eating yourself
+Purpose: User inputs and translates a word, can save a word and its translation to a dictionary, also everything goes to log  
 
-Todolist: Create game window; Divide it by cells, green cells is the player, red ones are delicious apples; Write code to make sneko move and consume stuff. Add scoring, maybe some customization ; 
+Todolist: 
+- Menu system (terminal)
+- Vocabulary saved to the external file
+- API usage for translation
+- Logging (external file)
+
