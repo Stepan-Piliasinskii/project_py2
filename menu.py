@@ -56,6 +56,7 @@ def show_menu():
 
         elif choice == "7":
             print(Fore.RED + "Exiting...")
+            log_action("Application exited by user.")
             break
 
         else:
