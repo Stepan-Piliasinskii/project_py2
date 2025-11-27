@@ -9,7 +9,6 @@ class DictionaryManager:
             f.write(f"{eng}:{es}\n")
 
     def read_dictionary(self):
-
         try:
             with open(DICT_FILE, "r", encoding="utf-8") as f:
                 return f.read()
@@ -20,8 +19,22 @@ class DictionaryManager:
 
         open(DICT_FILE, "w", encoding="utf-8").close()
 
-    def read_log(self):
+    def get_translation(self, eng: str):
+        try:
+            target = eng.strip().lower()
+            with open(DICT_FILE, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if not line or ":" not in line:
+                        continue
+                    e, s = line.split(":", 1)
+                    if e.strip().lower() == target:
+                        return s.strip()
+        except FileNotFoundError:
+            return None
+        return None
 
+    def read_log(self):
         try:
             with open(LOG_FILE, "r", encoding="utf-8") as f:
                 return f.read()
@@ -29,7 +42,6 @@ class DictionaryManager:
             return "Log empty."
 
     def clear_log(self):
-
         open(LOG_FILE, "w", encoding="utf-8").close()
 
 

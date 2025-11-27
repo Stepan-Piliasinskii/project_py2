@@ -38,10 +38,14 @@ def menu_iteration(translator: Translator, dictionary_manager: DictionaryManager
             return True
         print(Fore.CYAN + "Translating", end="")
         for i in range(3):
-            print(".", end="")
+            print(".", end="", flush=True)
             time.sleep(0.4)
         print()
-        original, translated = translator.translate(word)
+        saved = dictionary_manager.get_translation(word)
+        if saved is not None:
+            original, translated = word, saved
+        else:
+            original, translated = translator.translate(word)
         print(Fore.GREEN + f"{original} -> {translated}")
         log_action(f"Translation: {original} -> {translated}")
 
@@ -80,7 +84,6 @@ def menu_iteration(translator: Translator, dictionary_manager: DictionaryManager
 
     else:
         print(Fore.RED + "Something wrong, try again :)")
-
     return True
 
 def show_menu():

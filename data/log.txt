@@ -1,1 +1,5 @@
 Log cleared
+Application exited by user.
+Translation: hello -> Murciano
+Added word: hello:holaa
+Translation: hello -> holaa
