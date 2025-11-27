@@ -20,7 +20,7 @@
 - Logging — +1
 
 
-    Demo video
+    Usage
 demo_video.mov
 
     Project Structure
