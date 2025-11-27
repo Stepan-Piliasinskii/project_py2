@@ -4,6 +4,7 @@
 - Purpose: translate English words to Spanish from the terminal.
 - Main features: translate words, save words to a dictionary file, view logs, clear data.
 
+
     Completed functionality and approximate grades
 - Menu system with return to menu after actions — +1
 - Console design: colors + animation — +2
