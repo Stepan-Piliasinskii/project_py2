@@ -20,6 +20,9 @@
 - Logging — +1
 
 
+    Demo video
+demo_video.mov
+
     Project Structure
 translator/
 ├── README.md
