@@ -1,31 +1,24 @@
-from translator import translate_word
-from colorama import Fore, Style, init
-from file_manager import (
-    add_to_dictionary,
-    read_dictionary,
-    clear_dictionary,
-    read_log,
-    clear_log,
-    log_action
-)
+from translator import Translator
+from file_manager import DictionaryManager, log_action
 from utils import validate_word
+from colorama import Fore
+import time
 
+
+translator = Translator()
+dictionary_manager = DictionaryManager()
 
 def decorate_menu(func):
     def wrapper(*args, **kwargs):
         print("\n" + "=" * 40)
         print("💠       SIMPLE TRANSLATOR MENU       💠")
         print("=" * 40)
-
         result = func(*args, **kwargs)
-
         print("=" * 40)
         print("💠              END OF MENU             💠")
         print("=" * 40 + "\n")
-
         return result
     return wrapper
-
 
 @decorate_menu
 def menu_iteration():
@@ -44,7 +37,12 @@ def menu_iteration():
         if not validate_word(word):
             print(Fore.RED + "Invalid input. Only letters allowed.")
             return True
-        original, translated = translate_word(word)
+        print(Fore.CYAN + "Translating", end="")
+        for _ in range(3):
+            print(".", end="", flush=True)
+            time.sleep(0.3)
+        print()
+        original, translated = translator.translate(word)
         print(Fore.GREEN + f"{original} -> {translated}")
         log_action(f"Translation: {original} -> {translated}")
 
@@ -54,25 +52,25 @@ def menu_iteration():
         if not (validate_word(eng) and validate_word(es)):
             print(Fore.RED + "Invalid input. Only letters allowed.")
             return True
-        add_to_dictionary(eng, es)
+        dictionary_manager.add_to_dictionary(eng, es)
         print(Fore.GREEN + "Saved to dictionary.")
         log_action(f"Added word: {eng}:{es}")
 
     elif choice == "3":
         print(Fore.YELLOW + "--- Dictionary ---")
-        print(read_dictionary())
+        print(dictionary_manager.read_dictionary())
 
     elif choice == "4":
         print(Fore.MAGENTA + "--- LOG ---")
-        print(read_log())
+        print(dictionary_manager.read_log())
 
     elif choice == "5":
-        clear_dictionary()
+        dictionary_manager.clear_dictionary()
         print("Dictionary cleared")
         log_action("Dictionary cleared")
 
     elif choice == "6":
-        clear_log()
+        dictionary_manager.clear_log()
         print("Log cleared")
         log_action("Log cleared")
 
@@ -85,7 +83,6 @@ def menu_iteration():
         print(Fore.RED + "Something wrong, try again :)")
 
     return True
-
 
 def show_menu():
     while menu_iteration():
