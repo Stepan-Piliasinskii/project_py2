@@ -56,5 +56,4 @@ Thumbs.db
 # Logs
 *.log
 
-# Project-specific data (runtime-generated)
-data/*.txt
+
