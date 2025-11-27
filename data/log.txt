@@ -1,7 +1,1 @@
 Log cleared
-Translation: bread -> pan
-Added word: bread :hleb
-Translation: bread -> pan
-Translation: integral -> integral
-Translation: lol -> lol
-Dictionary cleared

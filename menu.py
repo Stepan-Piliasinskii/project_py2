@@ -5,23 +5,22 @@ from colorama import Fore
 import time
 
 
-translator = Translator()
-dictionary_manager = DictionaryManager()
-
 def decorate_menu(func):
     def wrapper(*args, **kwargs):
-        print("\n" + "=" * 40)
-        print("💠       SIMPLE TRANSLATOR MENU       💠")
-        print("=" * 40)
+        banner = (
+            "\n" 
+            "================ SIMPLE TRANSLATOR ================\n"
+            "|  EN -> ES  |  type words, save, and view logs  |\n"
+            "==================================================\n"
+        )
+        print(Fore.YELLOW + banner)
         result = func(*args, **kwargs)
-        print("=" * 40)
-        print("💠              END OF MENU             💠")
-        print("=" * 40 + "\n")
+        print(Fore.YELLOW + ("=" * 50) + "\n")
         return result
     return wrapper
 
 @decorate_menu
-def menu_iteration():
+def menu_iteration(translator: Translator, dictionary_manager: DictionaryManager):
     print(Fore.BLUE + "1. Translate a word")
     print(Fore.BLUE + "2. Add a word to the dictionary")
     print(Fore.BLUE + "3. Show dictionary")
@@ -38,9 +37,9 @@ def menu_iteration():
             print(Fore.RED + "Invalid input. Only letters allowed.")
             return True
         print(Fore.CYAN + "Translating", end="")
-        for _ in range(3):
-            print(".", end="", flush=True)
-            time.sleep(0.3)
+        for i in range(3):
+            print(".", end="")
+            time.sleep(0.4)
         print()
         original, translated = translator.translate(word)
         print(Fore.GREEN + f"{original} -> {translated}")
@@ -85,5 +84,7 @@ def menu_iteration():
     return True
 
 def show_menu():
-    while menu_iteration():
+    translator = Translator()
+    dictionary_manager = DictionaryManager()
+    while menu_iteration(translator, dictionary_manager):
         pass

@@ -1,15 +1,25 @@
-# project_py2
-Title: Translator
+# SIMPLE TRANSLATOR (EN -> ES)
 
-Author: Stepan Piliasinskii
+    Description
+- Purpose: translate English words to Spanish from the terminal.
+- Main features: menu-driven CLI, save words to a dictionary file, view logs, clear data.
+- Who it's for: beginners practicing Python basics (files, functions, tests, and HTTP requests).
 
-Description: Just a simple translator that uses an external API 
 
-Purpose: User inputs and translates a word, can save a word and its translation to a dictionary, also everything goes to log  
 
-Todolist: 
-- Menu system (terminal)
-- Vocabulary saved to the external file
-- API usage for translation
-- Logging (external file)
-
+    Project Structure
+translator/
+├── README.md
+├── requirements.txt
+├── main.py
+├── menu.py
+├── translator.py
+├── file_manager.py
+├── utils.py
+├── tests/
+│   ├── test_tests.py
+│   ├── test_dictionary_manager.py
+│   └── test_translator.py
+└── data/
+    ├── dictionary.txt
+    └── log.txt
