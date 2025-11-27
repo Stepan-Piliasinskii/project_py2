@@ -2,8 +2,7 @@
 
     Description
 - Purpose: translate English words to Spanish from the terminal.
-- Main features: menu-driven CLI, save words to a dictionary file, view logs, clear data.
-- Who it's for: beginners practicing Python basics (files, functions, tests, and HTTP requests).
+- Main features: translate words, save words to a dictionary file, view logs, clear data.
 
 
 
