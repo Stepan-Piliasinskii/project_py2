@@ -1,4 +1,3 @@
-import pytest
 from utils import validate_word
 
 def test_validate_word_true():
