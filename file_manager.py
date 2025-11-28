@@ -32,7 +32,6 @@ class DictionaryManager:
                         return s.strip()
         except FileNotFoundError:
             return None
-        return None
 
     def read_log(self):
         try:

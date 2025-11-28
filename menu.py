@@ -38,7 +38,7 @@ def menu_iteration(translator: Translator, dictionary_manager: DictionaryManager
             return True
         print(Fore.CYAN + "Translating", end="")
         for i in range(3):
-            print(".", end="", flush=True)
+            print(".", end="")
             time.sleep(0.4)
         print()
         saved = dictionary_manager.get_translation(word)
