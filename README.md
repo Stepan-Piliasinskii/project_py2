@@ -13,6 +13,7 @@
 - README — +0.5
 - External files for data (dictionary/log) — +1
 - External API (MyMemory) — +1
+- Video in README +2
 - Two classes (`Translator`, `DictionaryManager`) — +1
 - Validation via Regex + try/except in API call — +1
 - Tests for 3 functions (utils, file manager, translator) — +1
